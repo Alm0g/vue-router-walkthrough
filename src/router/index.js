@@ -1,25 +1,23 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
+
+// Guards
+import globalGuard from './guards';
+
+// Views
+import publicRoutes from './modules/publicRoutes';
+import jobsRoutes from './modules/jobsRoutes';
 
 const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+  ...publicRoutes,
+  ...jobsRoutes,
 ]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
+
+// Global Guard
+router.beforeEach((to, from, next) => globalGuard(to, from, next));
 
 export default router

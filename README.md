@@ -1,19 +1,4 @@
-# router-prac
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Implemented several Vue router functionalities:
+- Nested routes
+- Protected routes using meta fields for each route
+- More things I guess
